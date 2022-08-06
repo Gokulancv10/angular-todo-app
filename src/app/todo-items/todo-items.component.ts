@@ -26,11 +26,9 @@ export class TodoItemsComponent implements OnInit {
       updatedName: this.updatedTodoName
     })
     this.updatedTodoName = '';
-    console.table("EDITED TODO ID IS: " + todoId);
   }
 
   deleteTodo(todoId: number) {
     this.todoDeleted.emit({ id: todoId });
-    console.log("DELETED TODO ID IS: " + todoId);
   }
 }
