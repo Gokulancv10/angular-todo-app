@@ -1,0 +1,14 @@
+<form class="w-100">
+  <div class="row align-items-center p-3 g-3 create-todo-input">
+    <div class="col-md">
+      <input type="text" class="form-control" id="inputName"
+        placeholder="Name" [(ngModel)]="todoName" name="todo-input-name">
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary"
+        style="padding: .4rem 1.8rem"
+        [disabled]="todoName.length === 0"
+        (click)="createTodo()">Add</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,9 @@
+.create-todo-button {
+  padding: .8rem 1.5rem;
+}
+
+div.create-todo-input {
+  border: 0;
+  padding: 0 .75rem 0 0;
+  /*width: 70%;*/
+}
