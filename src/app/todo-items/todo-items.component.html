@@ -1,0 +1,40 @@
+<li class="list-group-item todo-item" id="{{ todoItem.id }}">
+    <div>{{ todoItem.name }} </div>
+    <div class="todo-item-actions">
+        <i class="fa-solid fa-pen" style="margin-right: 1rem;"
+            data-bs-toggle="modal"
+            [attr.data-bs-target]="'#todoEditModal_' + todoItem.id"></i>
+        <!-- Todo Edit Modal -->
+        <div class="modal fade" id="todoEditModal_{{ todoItem.id }}"
+            data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">
+                            Edit Todo: {{ todoItem.name }}
+                        </h5>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" class="form-control"
+                            id="editTodoInput"
+                            placeholder="Name" [(ngModel)]="updatedTodoName"
+                            name="edit-todo-input-name">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary"
+                            [disabled]="updatedTodoName.length === 0"
+                            (click)="editTodo(todoItem.id)"
+                            data-bs-dismiss="modal">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Todo Delete Button -->
+        <i class="fa-solid fa-trash-can" (click)="deleteTodo(todoItem.id)"></i>
+    </div>
+</li>
